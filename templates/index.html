@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎭 Mask Detector - Deteksi Masker Real-time</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-mask"></i> Mask Detector</h1>
+                <p>Sistem Deteksi Masker Real-time</p>
+            </div>
+        </header>
+
+        <!-- Status Panel -->
+        <div class="status-panel">
+            <div class="status-item">
+                <i class="fas fa-circle status-indicator" id="connectionStatus"></i>
+                <span id="connectionText">Menghubungkan...</span>
+            </div>
+            <div class="status-item">
+                <i class="fas fa-video status-indicator" id="detectionStatus"></i>
+                <span id="detectionText">Siap untuk deteksi</span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Video Container -->
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <img id="videoFeed" src="" alt="Video Feed" style="display: none;">
+                    <div class="video-placeholder" id="videoPlaceholder">
+                        <i class="fas fa-camera"></i>
+                        <p>Klik "Mulai Deteksi" untuk memulai</p>
+                    </div>
+                </div>
+
+                <!-- Detection Info Overlay -->
+                <div class="detection-overlay" id="detectionOverlay">
+                    <div class="detection-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Wajah Terdeteksi:</span>
+                            <span class="stat-value" id="faceCount">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Dengan Masker:</span>
+                            <span class="stat-value mask-count" id="maskCount">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Tanpa Masker:</span>
+                            <span class="stat-value no-mask-count" id="noMaskCount">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <button id="startBtn" class="btn btn-primary">
+                    <i class="fas fa-play"></i>
+                    Mulai Deteksi
+                </button>
+                <button id="stopBtn" class="btn btn-danger" disabled>
+                    <i class="fas fa-stop"></i>
+                    Hentikan Deteksi
+                </button>
+            </div>
+
+            <!-- Information Panel -->
+            <div class="info-panel">
+                <h3><i class="fas fa-info-circle"></i> Informasi Sistem</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Model:</strong> Support Vector Machine (SVM)
+                    </div>
+                    <div class="info-item">
+                        <strong>Deteksi:</strong> Real-time menggunakan Haar Cascade
+                    </div>
+                    <div class="info-item">
+                        <strong>Input:</strong> Webcam 640x480
+                    </div>
+                    <div class="info-item">
+                        <strong>Klasifikasi:</strong> Dengan Masker / Tanpa Masker
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Mask Detector - Pengolahan Citra Project</p>
+            <p>Sistem Deteksi Masker Real-time</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

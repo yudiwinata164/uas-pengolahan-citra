@@ -200,13 +200,3 @@ python app.py
 
 # 4. Buka browser: http://localhost:5000
 ```
-
-## 📞 Support
-
-**Jika mengalami masalah:**
-
-1. **Check Requirements:** Pastikan Python 3.7+ dan webcam tersedia
-2. **Check Dependencies:** Jalankan `pip install -r requirements.txt`
-3. **Check Model:** Pastikan file `mask_detector_svm.pkl` ada
-4. **Check Webcam:** Test webcam di aplikasi lain
-5. **Check Browser:** Gunakan Chrome/Firefox terbaru
